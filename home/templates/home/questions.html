@@ -1,0 +1,68 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1 id="category">{{ object.name }}</h1>
+        <div class="answer">
+            {% for el in object.question_set.all %}
+                {% if forloop.counter == rndAns %}
+                    {% if 'Co robi' in el.answer %}
+                        {{ el.answer|slice:":15" }}
+                        <br><br>
+                        {{ el.answer|slice:"15:" }}
+                    {% endif %}
+
+                    {% if 'Gdzie' in el.answer %}
+                        {{ el.answer|slice:":16"}}
+                        <br><br>
+                        {{ el.answer|slice:"16:"}}
+                    {% endif %}
+
+                    {% if 'Co się' in el.answer %}
+                        {{ el.answer|slice:":29"}}
+                        <br><br>
+                        {{ el.answer|slice:"29:"}}
+                    {% endif %}
+
+                    {% if 'Kim jest' in el.answer %}
+                        {{ el.answer|slice:":16"}}
+                        <br><br>
+                        {{ el.answer|slice:"16:"}}
+                    {% endif %}
+
+                    {% if 'Jaki sport' in el.answer %}
+                        {{ el.answer|slice:":26"}}
+                        <br><br>
+                        {{ el.answer|slice:"26:"}}
+                    {% endif %}
+
+                    {% if 'Co tańczy' in el.answer %}
+                        {{ el.answer|slice:":17"}}
+                        <br><br>
+                        {{ el.answer|slice:"17:"}}
+                    {% endif %}
+
+                    {% if 'Używam' in el.answer %}
+                        {{ el.answer|slice:":20"}}
+                        <br><br>
+                        {{ el.answer|slice:"20:"}}
+                    {% endif %}
+
+                    {% if object.id != 8 %}
+                        {{ el.answer }}
+                    {% endif %}
+
+                {% endif %}
+            {% endfor %}
+        </div>
+    <br><br>
+    <button onclick="reloadSite()" class="refresh">Odśwież</button>
+    <button onclick="window.location.href='/'" class="refresh">Kategorie</button>
+    </div>
+
+    <script>
+        function reloadSite() {
+            location.reload();
+        }
+    </script>
+{% endblock content %}

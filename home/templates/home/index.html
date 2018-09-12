@@ -1,0 +1,11 @@
+{% extends "home/base.html" %}
+{% block content %}
+<div class="content">
+    <h1>Kim jest janusz?</h1>
+    <hr>
+        {% for category in categories %}
+            <div><a class="btn-draw" href="{% url 'home:questions' category.id %}"><span>{{ category }}</span></a></div>
+            <hr>
+        {% endfor %}
+</div>
+{% endblock content %}
